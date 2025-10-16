@@ -1,4 +1,4 @@
-use TestSQL
+use master
 go
 /*
 ** created by: Alex Newsham & Sabah Shaib
