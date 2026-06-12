@@ -24,18 +24,18 @@ BEGIN
 
 	set @curYear = year(getdate())
 
-	-- Add the T-SQL statements to compute the return value here
-set @YearGroup = (select case when MONTH(@DoB) <= 8 then @curYear - YEAR(@DoB) -5
-     	                      else @curYear - YEAR(@DoB) -6
-				          end 
-				  )
-
-set @YearGroupResult = cast((select case when @YearGroup <= -1 then 'Pre-School age'
-									when @YearGroup > 13 then 'Post-school age'
-									when @YearGroup = 0 then 'Reception'
-									else cast(@YearGroup as varchar(20))
-									end)
-						     as varchar(20))
+	-- get school year group
+	set @YearGroup = (select case when MONTH(@DoB) <= 8 then @curYear - YEAR(@DoB) -5
+     							  else @curYear - YEAR(@DoB) -6
+							  end 
+					  )
+	-- gt the result to return
+	set @YearGroupResult = cast((select case when @YearGroup <= -1 then 'Pre-School age'
+										when @YearGroup > 13 then 'Post-school age'
+										when @YearGroup = 0 then 'Reception'
+										else cast(@YearGroup as varchar(20))
+										end)
+								 as varchar(20))
 
 
 	-- Return the result of the function
