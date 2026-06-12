@@ -38,7 +38,7 @@ BEGIN
 								 as varchar(20))
 
 
-	-- Return the result of the function
+	-- Return the result
 	RETURN @YearGroupResult
 
 END
