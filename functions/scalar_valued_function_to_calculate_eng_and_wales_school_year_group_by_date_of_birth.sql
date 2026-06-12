@@ -29,7 +29,7 @@ BEGIN
      							  else @curYear - YEAR(@DoB) -6
 							  end 
 					  )
-	-- gt the result to return
+	-- get the result to return
 	set @YearGroupResult = cast((select case when @YearGroup <= -1 then 'Pre-School age'
 										when @YearGroup > 13 then 'Post-school age'
 										when @YearGroup = 0 then 'Reception'
